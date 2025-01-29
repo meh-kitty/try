@@ -4,12 +4,87 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Audio Test</title>
+    <style>
+        /* Basic page styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff; /* Light blue background */
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Container for the content */
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Heading styling */
+        h1 {
+            font-size: 36px;
+            color: #2c3e50; /* Darker color for the heading */
+            margin-bottom: 20px;
+        }
+
+        /* Styling for the audio element */
+        audio {
+            display: none; /* Hide the audio player */
+        }
+
+        /* Button to control audio */
+        .audio-control {
+            padding: 12px 25px;
+            font-size: 18px;
+            background-color: #FF69B4; /* Pink color */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* Hover effect for play button */
+        .audio-control:hover {
+            background-color: #FF1493; /* Darker pink */
+        }
+    </style>
 </head>
 <body>
-    <!-- Audio element with autoplay and loop -->
-    <audio autoplay loop style="display:none;">
-        <source src="audio/Tyler-The-Creator-feat-Lola-Young-Like-Him.mp3" type="audio/mp3">
-        Your browser does not support the audio element.
-    </audio>
+    <div class="container">
+        <h1>Audio Test Page</h1>
+        <!-- Audio element with autoplay and loop -->
+        <audio id="audio" autoplay loop>
+            <source src="audio/Tyler-The-Creator-feat-Lola-Young-Like-Him.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+
+        <!-- Button to toggle audio -->
+        <button class="audio-control" onclick="toggleAudio()">Pause Music</button>
+    </div>
+
+    <script>
+        // Function to toggle audio play/pause
+        function toggleAudio() {
+            const audio = document.getElementById('audio');
+            const button = document.querySelector('.audio-control');
+
+            if (audio.paused) {
+                audio.play();
+                button.textContent = 'Pause Music';
+            } else {
+                audio.pause();
+                button.textContent = 'Play Music';
+            }
+        }
+    </script>
 </body>
 </html>
